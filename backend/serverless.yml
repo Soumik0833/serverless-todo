@@ -21,10 +21,10 @@ custom:
     models:
       - name: CreateTodoRequest
         contentType: 'application/json'
-        schema: ${file(models/TodoItem.json)}
+        schema: ${file(src/models/TodoItem.json)}
       - name: UpdateTodoRequest
         contentType: 'application/json'
-        schema: ${file(models/TodoUpdate.json)}
+        schema: ${file(src/models/TodoUpdate.json)}
 
 provider:
   tracing:
@@ -41,16 +41,9 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     PROJECT_NAME: todo-backend-app
     TODO_TABLE: todo-backend-table-${self:provider.stage}
-    BUCKET_NAME: todo-bucket-${self:provider.stage}
+    BUCKET_NAME: todo-soumik-bucket-${self:provider.stage}
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          method: get
-          path: hello
-
   Auth:
     handler: src/lambda/auth/auth0Authorizer.handler
 
