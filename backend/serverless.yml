@@ -21,10 +21,10 @@ custom:
     models:
       - name: CreateTodoRequest
         contentType: 'application/json'
-        schema: ${file(models/ToDoItem.json)}
+        schema: ${file(models/TodoItem.json)}
       - name: UpdateTodoRequest
         contentType: 'application/json'
-        schema: ${file(models/ToDoUpdate.json)}
+        schema: ${file(models/TodoUpdate.json)}
 
 provider:
   tracing:
